@@ -1,0 +1,24 @@
+Q1. 	-create database chubb;
+      	-use chubb;
+	-create table users(roll integer not null , user_name varchar(30), primary key(roll)); 
+	-create table codekata(no_of_problems integer, roll integer, foreign key(roll) references users(roll));
+	-create table attendance(roll integer not null, student_name varchar(30), attendance_date date, primary key(roll));
+	-create table topics(topic_Id integer not null ,topic_name varchar(30), primary key(topic_Id));
+	-create table tasks(task_Id integer not null, task_name varchar(30), task_date date, primary key(task_Id));
+	-create table company_drives(company_name varchar(30), roll integer, foreign key(roll) references users(roll));
+	-create table mentors(mentor_id integer not null, mentor_name varchar(30), primary key(mentor_Id));
+	-create table course(course_Id integer not null, course_name varchar(30), primary key(course_Id));
+	-create table activated_course(activated_course_Id integer not null, roll integer, foreign key(roll) references users(roll), course_Id integer, foreign key(course_Id) references course		(course_Id));
+	
+Q2.	-Insert into users(roll,user_name) values(360 ,'Abhisaar'),(364 ,'Aditi'),(366 ,'Akanksha'),(368 ,'Aniket'),(369 ,'Ardip');
+	-Insert into codekata(no_of_problems,roll) values(5, 360),(10, 364),(36, 366),(15, 368),(23, 369);
+	-Insert into attendance(roll, student_name, attendance_date) values(360,'Abhisaar','2021-09-06'),(364,'Aditi', '2021-09-06'),(366,'Akanksha', '2021-09-06'),(368,'Aniket', '2021-09-06'),	(369,'Ardip', '2021-09-06');
+	-Insert into topics(topic_Id, topic_name) values(1,'Array'),(2,'String'),(3,'Linked List'),(4,'Stacks'),(5,'Tree');
+	-Insert into tasks(task_Id, task_name, task_date) value(1,'MySQl','2021-09-06'),(2,'NoSQL','2021-09-10'),(3,'JavaScript','2021-09-13'),(4,'Java','2021-09-17'),(5,'Angular','2021-09-30');
+``	-Insert into company_drives(company_name, roll) values('SAP Labs', 366),('Amazon',368),('Chubb',360),('HRC',369),('Endurance',364);
+	-Insert into mentors(mentor_Id,mentor_name) values(1 ,'Pinaki Singh'),(2 ,'Rajdeep chatterji'),(3 ,'Prachet Bhuyan'),(4 ,'Pradeep kumar mallik'),(5 ,'Adyasha mohanty');
+	-Insert into course(course_Id, course_name) values(1, 'C++'),(2,'DSA'),(3,'Java'),(4,'DBMS'),(5,'OS');
+	-Insert into activated_course(activated_course_Id, roll, course_Id) values(1,360,1),(2,364,2),(3,366,3),(4,368,4),(5,369,5);
+
+Q6. 	-Select mentor_name from mentors;
+
