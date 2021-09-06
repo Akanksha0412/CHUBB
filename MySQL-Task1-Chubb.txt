@@ -1,0 +1,50 @@
+Q1. 	-CREATE SCHEMA chubb;
+      	-USE chubb;
+
+	-CREATE TABLE users(roll integer not null , user_name varchar(30), primary key(roll)); 
+
+	- CREATE TABLE codekata(no_of_problems integer, roll integer, foreign key(roll) references users(roll));
+
+	-CREATE TABLE attendance(roll integer not null, student_name varchar(30), attendance_date date, primary key(roll));
+
+	-CREATE TABLE topics(topic_Id integer not null ,topic_name varchar(30), primary key(topic_Id));
+
+	-CREATE TABLE tasks(task_Id integer not null, task_name varchar(30), task_date date, primary key(task_Id));
+
+	-CREATE TABLE company_drives(no_company_drives integer, roll integer, foreign key(roll) references users(roll));
+
+	-CREATE TABLE mentors(mentor_id integer not null, mentor_name varchar(30), primary key(mentor_Id));
+
+	-CREATE TABLE course(course_Id integer not null, course_name varchar(30), primary key(course_Id));
+
+	-CREATE TABLE activated_course(activated_course_Id integer not null, roll integer, foreign key(roll) references users(roll), course_Id integer, foreign key(course_Id) references course			(course_Id));
+	
+Q2.	-Insert into users(roll,user_name) values(360 ,'Abhisaar'),(364 ,'Aditi'),(366 ,'Akanksha'),(368 ,'Aniket'),(369 ,'Ardip');
+
+	-Insert into codekata(no_of_problems,roll) VALUES(5, 360),(10, 364),(36, 366),(15, 368),(23, 369);
+
+	-Insert into attendance(roll, student_name, attendance_date) VALUES(360,'Abhisaar','2021-09-06'),(364,'Aditi', '2021-09-06'),(366,'Akanksha', '2021-09-06'),(368,'Aniket', '2021-09-06'),		(369,'Ardip', '2021-09-06');
+
+	-INSERT INTO topics(topic_Id, topic_name) VALUES(1,'Array'),(2,'String'),(3,'Linked List'),(4,'Stacks'),(5,'Tree');
+
+	-INSERT INTO tasks(task_Id, task_name, task_date) VALUES(1,'MySQl','2021-09-06'),(2,'NoSQL','2021-09-10'),(3,'JavaScript','2021-09-13'),(4,'Java','2021-09-17'),(5,'Angular','2021-09-30');
+
+``	-INSERT INTO company_drives(no_company_drives, roll) VALUES(2, 360),(3, 364),(9, 366),(5, 368),(4, 369);
+
+	-INSERT INTO mentors(mentor_Id,mentor_name) VALUES(1 ,'Pinaki Singh'),(2 ,'Rajdeep chatterji'),(3 ,'Prachet Bhuyan'),(4 ,'Pradeep kumar mallik'),(5 ,'Adyasha mohanty');
+
+	-INSERT INTO course(course_Id, course_name) VALUES(1, 'C++'),(2,'DSA'),(3,'Java'),(4,'DBMS'),(5,'OS');
+
+	-INSERT INTO activated_course(activated_course_Id, roll, course_Id) VALUES(1,360,1),(2,364,2),(3,366,3),(4,368,4),(5,369,5);
+
+
+Q3.	-SELECT SUM(no_of_problems) FROM codekata;
+
+Q4.	-SELECT roll, no_company_drives FROM company_drives;
+
+Q5.	-
+
+Q6. 	-SELECT mentor_name FROM mentors;
+
+Q7. 	-
+
