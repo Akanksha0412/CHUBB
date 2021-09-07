@@ -1,0 +1,34 @@
+Q1. 	-CREATE SCHEMA chubb;
+      	-USE chubb;
+
+	-CREATE TABLE users(roll integer not null , user_name varchar(40), mentor_id integer, primary key(roll));
+	-ALTER TABLE users  ADD  foreign key(mentor_Id) references mentors(mentor_Id);
+	 //Above, In the users table, mentor ID is a foreign key that I added after creating mentors Table but I am writing the query here for clarity.
+
+	- CREATE TABLE codekata(no_of_problems integer, users_roll integer, foreign key(roll) references users(roll));
+
+	-CREATE TABLE attendance(attendance_Id integer, roll integer, student_name varchar(30), attendance varchar(3), attendance_date date, primary key(attendance_Id), foreign key(roll) 		references users(roll));
+
+	-CREATE TABLE company_drives(company_drives_Id integer, no_company_drives integer, roll integer,primary key(company_drives_Id), foreign key(roll) references users(roll));
+
+	-CREATE TABLE mentors(mentor_id integer not null, mentor_name varchar(30), primary key(mentor_Id));
+
+	-CREATE TABLE course(course_Id integer not null, course_name varchar(30), primary key(course_Id));
+
+	-CREATE TABLE activated_course(activated_course_Id integer not null, roll integer, foreign key(roll) references users(roll), course_Id integer, foreign key(course_Id) references course			(course_Id));
+
+	-CREATE TABLE topics(topic_Id integer not null ,topic_name varchar(30), primary key(topic_Id), student_activity_Id integer, roll integer, foreign key(student_activated_Id) references 		activated_course(activated_course_Id),foreign key(roll) references users(roll));
+
+	-CREATE TABLE tasks(task_Id integer not null, task_name varchar(30), task_date date, topic_id integer, activated_course_id integer, roll integer, primary key(task_Id), foreign key		(student_activated_Id) references activated_course(activated_course_Id), foreign key(roll) references users(roll), foreign key(topic_Id) references topics(topic_id));
+
+
+Q3.	-SELECT SUM(no_of_problems) FROM codekata;
+
+Q4.	-SELECT users.roll, company_drives.no_company_drives FROM company_drives as c inner join users as u on c.roll=u.roll ;
+
+Q5.	-SELECT a.roll, c.course_name FROM activated_course as a INNER JOIN course as c on a.course_Id=c.course_Id GROUP BY c.course_name;
+
+Q6. 	-SELECT mentor_name FROM mentors;
+
+Q7. 	-SELECT mentor_Id, count(roll) FROM users GROUP BY mentor_Id;
+
