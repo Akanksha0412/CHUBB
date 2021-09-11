@@ -1,0 +1,77 @@
+1. > db.topics.aggregate([
+       {
+         '$lookup' : {
+           'from' : 'tasks',
+           'localField' : 'topic_Id',
+           'foreignField' : 'task_Id',
+           'as' : 'string'
+           }
+       },{
+       {$match: {
+       'date' : {
+          '$gte' : '01/10/2020',
+          '$lte' : '31/10/2020,
+          }
+        }
+       }
+       ]).pretty();
+       
+----------------------------------------------
+       
+2. > db.company_Drives.find({date : {$gte : "15/10/2020", $lte : "31/10/2020"}}).pretty();
+
+----------------------------------------------
+
+3. > dp.company_Drives.aggregate([
+     {
+     '$unwind' : {
+             'path' : '$students'
+             }
+             },
+             {
+             '$lookup' : {
+                         'from' : 'users',
+                         'localfield' : 'student',
+                         'ForeignField' : 'roll',
+                         'as' : 'student_info'
+                         }
+            }
+            ]);
+            
+------------------------------------------------
+
+4. > db.users.find({},{roll : 1, name : 1, codekata_problems_solved: 1});
+
+------------------------------------------------
+
+5. > db.mentors.find({"mentor_student.15" : {$exists" : true }});
+
+------------------------------------------------
+
+6. > db.users.aggregate([
+     {
+        '$unwind' : {
+          'path' : '$attendance'
+          }
+     },{
+        '$match' : {
+             'attendance_present' : {'$not' : {'$gte' : '15/10/2020', '$lte' : '31/10/2020 }}
+                   }
+       }
+      }, {
+          '$unwind' : {
+          'path' : '$tasks'
+          }
+     },{
+        '$match' : {
+                   'tasks.date' : {'$not' : {'$gte' : '15/10/2020', '$lte' : '31/10/2020 }}
+                   }
+         }
+     },{
+       '$group' : {
+               '_id' : {'roll' : '$roll', 'name': '$name'}
+                  }
+        }
+        ]);
+        
+       
