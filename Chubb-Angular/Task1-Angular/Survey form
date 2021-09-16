@@ -1,0 +1,80 @@
+<!--Assignment or Task dated on 15-09-2021-->
+<!-- Survey Form -->
+
+<!-- Name -->
+<!-- email -->
+<!-- dob -->
+<!-- gender -->
+<!-- martial status -->
+<!-- Which politacl party do u support -->
+<!-- Fav Political leader -->
+<!-- Which party will win this election -->
+<!-- upload your adhar card -->
+<!-- tell about yourself -->
+
+
+
+<html>
+    <head>
+        <title>Survey Form</title>
+    </head>
+
+    <body>
+        <lable for="name">Name</lable>
+        <input type="text" name="name"/>
+        <br>
+        <br>
+        <lable for="email">Email</lable>
+        <input type="email" name="email"/>
+        <br>
+        <br>
+        <lable for="birthday">Date of birth</lable>
+        <input type="date" name="birthday"/>
+        <br>
+        <br>
+        <lable for="gender">Gender</lable>
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female
+        <br>
+        <br>
+        <lable for="martialstatus">Relationship Status</lable>
+        <input type="radio" name="martialstatus">Married
+        <input type="radio" name="martialstatus">Single
+        <br>
+        <br>
+        <label for="politics">Which political party do you support</label>
+        <select name="support">
+            <option value = "">Bharatiye Janta Party</option>
+            <option value = "">All India Congress</option>
+            <option value = "">All India Trinamool Congress</option>
+            <option value = "">Communist Party of India</option>
+        </select>
+        <br>
+        <br>
+        <label for="politics">favorite political party</label>
+        <select name="favorite">
+            <option value = "">Bharatiye Janta Party</option>
+            <option value = "">All India Congress</option>
+            <option value = "">All India Trinamool Congress</option>
+            <option value = "">Communist Party of India</option>
+        </select>
+        <br>
+        <br>
+        <label for="politics">Which party will win this election</label>
+        <select name="win">
+            <option value = "">Bharatiye Janta Party</option>
+            <option value = "">All India Congress</option>
+            <option value = "">All India Trinamool Congress</option>
+            <option value = "">Communist Party of India</option>
+        </select>
+        <br>
+        <br>
+        <label for="aadhar">Upload your aadhar card</label>
+        <input type="file" name="aadhar"/>
+        <br>
+        <br>
+        <label for="myself">Introduce Yourself</label>
+        <textarea name ="Write about youself" id="" cols="15" rows="5"></textarea> 
+
+    </body>
+</html>
